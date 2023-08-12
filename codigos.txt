@@ -1,0 +1,34 @@
+create database nome do banco de dados; - cria um banco de dados
+
+create table alunos (
+	  ID int NOT	NULL AUTO_INCREMENT,
+     	 Nome varchar(30) NOT NULL,
+     	 Data_de_nascimento DATE NOT NULL,
+     	 Endereço varchar(100) NOT NULL,
+     	 Telefone INT(25) NOT NULL,
+     	 Email VARCHAR(50),
+     	 primary key(id)
+
+    
+)default charset = utf8; - cria uma tabela que aceita caractere especiais
+
+describe nome da tabela; - mostra a estrutura da tabela
+
+create database nome do banco de dados 
+default character set utf8
+default collate utf8_general_ci; - cria um banco de dados com aceitacao de caracteres acentuados
+
+
+insert into alunos
+(nome, data_de_nascimento, endereço, telefone, email)
+values
+('Rosilene','1984-12-14','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9317-4900','rosilenemomm@gmail.com'); - adiciona dados a tabela
+
+select * from alunos; - mostra os dados inseridos
+
+insert into alunos 
+(nome, data_de_nascimento, endereço, telefone, email)
+values
+('Rosilene','1984-12-14','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9317-4900','rosilenemomm@gmail.com'),
+('Brenno','2009-12-22','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9381-7243','folhamommbrenno@gmail.com'),
+('Ronne','1983-06-16','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9247-4003','ronnefolha@gmail.com'); - inserir varios dados de uma vez só
