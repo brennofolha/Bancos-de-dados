@@ -19,16 +19,25 @@ default character set utf8
 default collate utf8_general_ci; - cria um banco de dados com aceitacao de caracteres acentuados
 
 
-insert into alunos
+insert into nome da tabela
 (nome, data_de_nascimento, endereço, telefone, email)
 values
 ('Rosilene','1984-12-14','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9317-4900','rosilenemomm@gmail.com'); - adiciona dados a tabela
 
-select * from alunos; - mostra os dados inseridos
+select * from nome da tabela; - mostra os dados inseridos
 
-insert into alunos 
+insert into nome da tabela
 (nome, data_de_nascimento, endereço, telefone, email)
 values
 ('Rosilene','1984-12-14','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9317-4900','rosilenemomm@gmail.com'),
 ('Brenno','2009-12-22','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9381-7243','folhamommbrenno@gmail.com'),
 ('Ronne','1983-06-16','Rua Gaucha, Bairro Lagoa Azul, Numero 10','(69)9247-4003','ronnefolha@gmail.com'); - inserir varios dados de uma vez só
+
+alter table nome da tabela
+add column profissao varchar(10); - adicionar uma coluna a tabela
+
+alter table nome da tabela
+drop column nome da coluna; - apaga uma coluna
+
+alter table nome da tabela
+add column nome da coluna e seu tipo primitivo after nome da outra coluna; - adiciona a coluna apos a outra por exemplo: quero adicionar a coluna idade apos a coluna nome, por padrao quando adicionamos colunas ela vai para a ultima posicao
