@@ -41,3 +41,60 @@ drop column nome da coluna; - apaga uma coluna
 
 alter table nome da tabela
 add column nome da coluna e seu tipo primitivo after nome da outra coluna; - adiciona a coluna apos a outra por exemplo: quero adicionar a coluna idade apos a coluna nome, por padrao quando adicionamos colunas ela vai para a ultima posicao
+
+alter table nome da tabela
+add column nome da coluna e seu tipo primitivo first; - coloca a coluna na primeira posição (o comando column é opcional, exemplo: alter table 
+add profissao varchar(30) funcionara do mesmo jeito)
+
+alter table nome da tabela 
+modify column nome da coluna e seu tipo primitivo not null; - modifica o tipo primitivo e sua constraint, exemplo: 
+alter table alunos 
+modify column telefone varchar(30) not null; (mas nao renomea o nome da coluna)
+
+OBS.caso tenha mudado a coluna para ser not null e tenha dado erro ou aviso é pq a coluna esta com os dados vazios para colocar not null e sem os dados coloque logo apos o not null assim: default ''
+
+alter table nome da tabela
+change column nome da coluna antigo , nome da coluna nova e tipo primitivo; - renomea o nome da coluna mas e necessario colocar o nome antigo e o novo e seu tipo primitivo, exemplo : 
+alter table alunos
+change column celular telefone varchar(30); (se a coluna era not null e voce mudou o nome dela, vc tem que colocar o not null denovo pq ele ira perde-lo e se tornara nao obrigatoria)
+
+alter table nome da tabela
+rename to nome novo da tabela; - renomea a tabela 
+exemplo:
+alter table alunos
+rename to estudantes;
+
+if not exists - siginifica basicamente, se nao existir executa o codigo mas se existir  nao executa
+
+if exists - é o contrario , se existir executa  mas se nao existir nao executa
+
+unique - nao deixa ter duas coisas com o mesmo nome ou identico 
+
+unsigned - nao deixa o campo ser negativo, so pode ser positivo ou zero
+
+exemplo:
+create table if not exists cursos(
+	nome varchar(30) not null unique,
+    	descricao text,
+    	carga int unsigned,
+    	total_aulas int unsigned,
+    	ano year default '2023' 
+) default charset = utf8;
+
+caso tenha esquecido de colocar a chave primaria coloque assim: 
+
+alter table nome da tabela
+add column nome da chave primaria, tipo primitivo e constraint; - adiciona a coluna mas nao se torna a chave primaria
+exemplo:
+alter table cursos
+add column idcursos int  first;
+
+alter table nome da tabela
+add primary key (nome da chave primaria); -  torna a coluna uma chave primaria
+exemplo:
+alter table cursos
+add primary key (idcursos);
+
+drop table nome da tabela; - apaga uma tabela inteira
+
+OBS.Nao tem como colocar auto_increment se esquecer 
