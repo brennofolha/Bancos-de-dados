@@ -98,3 +98,80 @@ add primary key (idcursos);
 drop table nome da tabela; - apaga uma tabela inteira
 
 OBS.Nao tem como colocar auto_increment se esquecer 
+
+
+---------------------------------------------------------Modificando Linhas Incorretas---------------------------------------------------------------
+
+UPDATE nome da tabela
+SET nome da coluna = 'novo registro que quer colocar'
+WHERE nome do id(geralmente se localiza pelo id) = 'numero do id'; - modifica um registro
+
+exemplo:
+
+UPDATE cursos
+SET nome = 'HTML5'
+WHERE idcursos = '1' - modifica o registro com id 1 para HTML5
+
+UPDATE nome da tabela
+SET nome da coluna = 'novo registro' , nome da coluna = 'novo registro'
+WHERE nome do id = 'numero do id'; - altera dois registros na mesma linha
+
+exemplo:
+
+UPDATE cursos
+SET nome = 'PHP' , ano = 2015
+WHERE idcursos = '4'; - altera dois registros de duas colunas na mesma linha
+
+UPDATE nome da tabela
+SET nome da coluna = 'novo registro' , nome da coluna = 'nome do registro'
+WHERE nome da coluna = 'nome do registro'
+; - modifica mais de uma linha, 
+
+exemplo:
+
+UPDATE cursos
+SET ano = 2050 , carga = '800'
+WHERE ano = '2018'
+; - modifica todas as linhas cujo o ano seja 2018 e faz com que passe a ser o ano 2050 e a carga 800 ,(mas para isso é precisso desbalitar uma funcao por que o mysql bloqueia mecher em mais de um registro) para desabilitar siga o passo a passo: edit > preferences > SQL editor > desabilite a caixa de safe updates > clique em ok > clique em uma figura onde esta escrito reconnect to DBMS, se tiver alguma duvida va no video Curso MySQL #07 - Manipulando Linhas (UPDATE, DELETE e TRUNCATE) no minuto 15(é recomdavel deixar habilitado pois é um codigo perigoso)
+
+UPDATE nome da tabela
+SET nome da coluna = 'novo registro' , nome da coluna = 'novo registro'
+WHERE nome da coluna = 'nome do registro'
+limit 1
+; - modifica uma ou mais colunas cujo o registro seja igual ao registro do where e limita a 1 modificacao ou seja o primeiro registro que tiver aquele registro do where vai ser modificado
+
+exemplo:
+UPDATE cursos
+SET ano = 2018 , carga = '0'
+WHERE ano = '2050'
+limit 1
+; - modifica o primeiro registro cujo o ano é 2050 para o ano 2018 e a carga 0 (caso o limite seja colocado 2 ou 3 por exemplo vai ser os 2 ou 3 primeiro registros a serem modificados)
+
+---------------------------------------------------------------Removendo uma Linha------------------------------------------------------------------
+
+DELETE FROM nome da tabela
+WHERE nome do id = 'numero do id'; - apaga uma linha de uma tabela localizada pelo id
+
+exemplo:
+
+DELETE FROM cursos
+WHERE idcursos = '8'; - apaga um registro cujo o id seja 8
+
+DELETE FROM nome da tabela
+WHERE nome da coluna = 'nome do registro'
+limit 2; - apaga todas as linha cujo o registro seja x  e seja limitado a 2 ou quantos voce quiser para isso deve desabilitar o safe update nos codigos acima ensino como desabilitar mas caso tenha duvida assista a aula Curso MySQL #07 - Manipulando Linhas (UPDATE, DELETE e TRUNCATE) no minuto 15
+
+exemplo :
+
+DELETE FROM cursos
+WHERE ano = '2050'
+limit 2; - apaga todas as linhas cujo o ano seja 2050 com o limite das duas primeiras
+
+
+---------------------------------------------------------Removendo TODAS as Linhas-------------------------------------------------------------------
+
+TRUNCATE TABLE nome da tabela; - remove TODAS as linhas de uma tabela (nao precisa digitar o table)
+
+exemplo:
+
+TRUNCATE cursos; - apaga todos os registros da tabela cursos
