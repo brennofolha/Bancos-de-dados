@@ -175,3 +175,8 @@ TRUNCATE TABLE nome da tabela; - remove TODAS as linhas de uma tabela (nao preci
 exemplo:
 
 TRUNCATE cursos; - apaga todos os registros da tabela cursos
+
+
+---------------------------------------------------------Como clonar Banco de dados------------------------------------------------------------------
+
+assista a aula: Curso MySQL #08 - Gerenciando Cópias de Segurança MySQL
