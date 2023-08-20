@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #312D2C;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      animation: fadeIn 0.5s ease;
+    }
+  
+    .container {
+      background-color: #312D2C;
+      border-radius: 8px;
+      padding: 30px; /* Aumentei o espaçamento interno */
+      
+      width: 400px; /* Aumentei a largura do formulário */
+      max-width: 90%; /* Limitando a largura máxima */
+    }
+  
+    .form-group {
+      margin-bottom: 20px; /* Aumentei o espaçamento entre os campos */
+    }
+  
+    label {
+      font-weight: bold;
+      color: #fff;
+    }
+  
+    select, input[type="text"], input[type="email"], input[type="date"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+
+  /* Estilizando o select */
+  select {
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    color: #333;
+  }
+
+  select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+    button {
+      background-color: #FFCA00;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    button:hover {
+      background-color: #0056b3;
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .titulo{
+        color:#ffff;
+    }
+  </style>
+
+<title>Formulário de Cadastro</title>
+</head>
+<body>
+    <div class="container">
+      <h2 class="titulo">Cadastro</h2>
+      <form>
+        <div class="form-group">
+          <label for="tipo">Escolha uma opção:</label>
+          <select id="tipo" name="tipo">
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+            <option value="nota">Cadastrar Nota</option>
+          </select>
+        </div>
+        <div class="form-group" id="campo-nome" style="display: none;">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-group" id="campo-email" style="display: none;">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group" id="campo-telefone" style="display: none;">
+          <label for="telefone">Telefone:</label>
+          <input type="text" id="telefone" name="telefone">
+        </div>
+        <div class="form-group" id="campo-sexo" style="display: none;">
+          <label for="sexo">Sexo:</label>
+          <select id="sexo" name="sexo">
+            <option value="" selected disabled>Selecione o sexo</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="form-group" id="campo-data-nascimento" style="display: none;">
+          <label for="data-nascimento">Data de Nascimento:</label>
+          <input type="date" id="data-nascimento" name="data-nascimento">
+        </div>
+        <div class="form-group" id="campo-cidade-estado" style="display: none;">
+          <label for="cidade">Cidade:</label>
+          <input type="text" id="cidade" name="cidade">
+          <label for="estado">Estado:</label>
+          <input type="text" id="estado" name="estado">
+        </div>
+        <div class="form-group" id="campo-endereco" style="display: none;">
+          <label for="endereco">Endereço:</label>
+          <input type="text" id="endereco" name="endereco">
+        </div>
+        <div class="form-group" id="campo-disciplina" style="display: none;">
+          <label for="disciplina">Disciplina:</label>
+          <input type="text" id="disciplina" name="disciplina">
+        </div>
+        <div class="form-group" id="campo-nome-professor" style="display: none;">
+          <label for="nome-professor">Nome do Professor:</label>
+          <input type="text" id="nome-professor" name="nome-professor">
+        </div>
+        <div class="form-group" id="campo-nome-aluno" style="display: none;">
+          <label for="nome-aluno">Nome do Aluno:</label>
+          <input type="text" id="nome-aluno" name="nome-aluno">
+        </div>
+        <div class="form-group" id="campo-nota-disciplina" style="display: none;">
+          <label for="nota-disciplina">Disciplina:</label>
+          <input type="text" id="nota-disciplina" name="nota-disciplina">
+        </div>
+        <div class="form-group" id="campo-nota" style="display: none;">
+          <label for="nota">Nota:</label>
+          <input type="number" id="nota" name="nota" min="0" max="10">
+        </div>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+    <script>
+      const tipoSelect = document.getElementById('tipo');
+      const campoNome = document.getElementById('campo-nome');
+      const campoEmail = document.getElementById('campo-email');
+      const campoTelefone = document.getElementById('campo-telefone');
+      const campoSexo = document.getElementById('campo-sexo');
+      const campoDataNascimento = document.getElementById('campo-data-nascimento');
+      const campoCidadeEstado = document.getElementById('campo-cidade-estado');
+      const campoEndereco = document.getElementById('campo-endereco');
+      const campoDisciplina = document.getElementById('campo-disciplina');
+      const campoNomeProfessor = document.getElementById('campo-nome-professor');
+      const campoNomeAluno = document.getElementById('campo-nome-aluno');
+      const campoNotaDisciplina = document.getElementById('campo-nota-disciplina');
+      const campoNota = document.getElementById('campo-nota');
+  
+      tipoSelect.addEventListener('change', () => {
+        campoNome.style.display = 'none';
+        campoEmail.style.display = 'none';
+        campoTelefone.style.display = 'none';
+        campoSexo.style.display = 'none';
+        campoDataNascimento.style.display = 'none';
+        campoCidadeEstado.style.display = 'none';
+        campoEndereco.style.display = 'none';
+        campoDisciplina.style.display = 'none';
+        campoNomeProfessor.style.display = 'none';
+        campoNomeAluno.style.display = 'none';
+        campoNotaDisciplina.style.display = 'none';
+        campoNota.style.display = 'none';
+  
+        if (tipoSelect.value === 'aluno') {
+          campoNome.style.display = 'block';
+          campoEmail.style.display = 'block';
+          campoTelefone.style.display = 'block';
+          campoSexo.style.display = 'block';
+          campoDataNascimento.style.display = 'block';
+          campoCidadeEstado.style.display = 'block';
+          campoEndereco.style.display = 'block';
+        } else if (tipoSelect.value === 'professor') {
+          campoNome.style.display = 'block';
+          campoEmail.style.display = 'block';
+          campoTelefone.style.display = 'block';
+          campoSexo.style.display = 'block';
+          campoDataNascimento.style.display = 'block';
+          campoCidadeEstado.style.display = 'block';
+          campoEndereco.style.display = 'block';
+          campoDisciplina.style.display = 'block';
+        } else if (tipoSelect.value === 'nota') {
+          campoNomeProfessor.style.display = 'block';
+          campoNomeAluno.style.display = 'block';
+          campoNotaDisciplina.style.display = 'block';
+          campoNota.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>
