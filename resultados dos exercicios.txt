@@ -1,100 +1,62 @@
-nome                   |
-+------------------------+
-| Talita Nascimento      |
-| Leila Martins          |
-| Letícia Neves          |
-| Janaína Couto          |
-| Andreia Delfino        |
-| Rosana Kunz            |
-| Josiane Dutra          |
-| Nara Matos             |
-| Ana Carolina Mendes    |
-| Monique Precivalli     |
-| Karine Ribeiro         |
-| Jarismar Andrade       |
-| Janaina Oliveira       |
-| Daniele Moledo         |
-| Ana Carolina Hernandes |
-| Bruna Teles            |
-| Elaine Nunes           |
-| Jucinei Teixeira       |
-| Bruna Santos           |
-| Rita Pontes            |
-| Dayana Dias            |
-| Silvana Albuquerque    |
-+------------------------+
+1 exercicio: uma lista com as profissoes dos gafanhotos e seu respectivos quantitativos
 
-+----+---------------------------+----------------------+------------+------+--------+--------+---------------+
-| id | nome                      | profissao            | nascimento | sexo | peso   | altura | nacionalidade |
-+----+---------------------------+----------------------+------------+------+--------+--------+---------------+
-| 50 | Denilson Barbosa da Silva | Empreendedor         | 2000-01-08 | M    |  97.30 |   2.00 | Brasil        |
-| 23 | Bruno Torres              | Auxiliar Administrat | 2000-01-30 | M    |  44.65 |   1.65 | Brasil        |
-| 46 | Diogo Padilha             | Auxiliar Administrat | 2000-03-03 | M    |  54.34 |   1.88 | Angola        |
-| 59 | Philppe Oliveira          | Auxiliar Administrat | 2000-05-23 | M    | 105.10 |   2.19 | Brasil        |
-| 33 | Jarismar Andrade          | Dentista             | 2000-06-23 | F    |  63.70 |   1.33 | Brasil        |
-| 36 | Robson Rodolpho           | Auxiliar Administrat | 2000-08-08 | M    | 110.10 |   1.76 | Brasil        |
-| 21 | Ana Carolina Mendes       | Ator                 | 2000-12-15 | F    |  88.30 |   1.54 | Brasil        |
-| 41 | Isaias Buscarino          | Dentista             | 2001-01-07 | M    |  99.90 |   1.55 | Moçambique    |
-| 22 | Guilherme de Sousa        | Dentista             | 2001-05-18 | M    | 132.70 |   1.97 | Moçambique    |
-| 58 | Carlos Camargo            | Programador          | 2005-02-22 | M    | 124.65 |   1.33 | Brasil        |
-| 37 | Daniele Moledo            | Empreendedor         | 2006-08-11 | F    | 101.30 |   1.99 | Brasil        |
-| 32 | Roberto Luiz Debarba      | Ator                 | 2007-01-09 | M    |  77.44 |   1.56 | Brasil        |
-| 39 | Neriton Dias              | Auxiliar Administrat | 2009-10-30 | M    |  48.99 |   1.29 | Brasil        |
-| 20 | Marcos Dissotti           | Empreendedor         | 2010-01-01 | M    |  53.79 |   1.54 | Portugal      |
-|  8 | Carlisson Rosa            | Professor            | 2010-08-01 | M    |  78.22 |   1.98 | Brasil        |
-| 16 | Elvis Schwarz             | Dentista             | 2011-05-07 | M    |  66.69 |   1.76 | EUA           |
-| 35 | Márcio Mello              | Programador          | 2011-11-20 | M    |  54.11 |   1.55 | EUA           |
-| 49 | Silvio Ricardo            | Programador          | 2012-03-12 | M    |  65.99 |   1.23 | EUA           |
-| 27 | Monique Precivalli        | Auxiliar Administrat | 2013-12-30 | F    |  48.20 |   1.22 | Brasil        |
-+----+---------------------------+----------------------+------------+------+--------+--------+---------------+
+codigo: select profissao, count(*) from gafanhotos group by profissao;
 
-+-----------------+
-| nome            |
-+-----------------+
-| Emerson Gabriel |
-| Jackson Telles  |
-| Allan Silva     |
-| Raian Porto     |
-| Anderson Rafael |
-| Márcio Mello    |
-| André Schmidt   |
-| Silvio Ricardo  |
-| Andre Santini   |
-| Ruan Valente    |
-| Carlos Camargo  |
-+-----------------+
+resultado: 
++----------------------+----------+
+| profissao            | count(*) |
++----------------------+----------+
+| Auxiliar Administrat |       13 |
+| Farmacêutico         |        2 |
+| Programador          |       16 |
+| Professor            |        7 |
+| Dentista             |        7 |
+| Ator                 |        6 |
+| Empreendedor         |        7 |
+| Médico               |        3 |
++----------------------+----------+
 
-+----+------------------+-----------+------------+------+-------+--------+---------------+
-| id | nome             | profissao | nascimento | sexo | peso  | altura | nacionalidade |
-+----+------------------+-----------+------------+------+-------+--------+---------------+
-| 33 | Jarismar Andrade | Dentista  | 2000-06-23 | F    | 63.70 |   1.33 | Brasil        |
-+----+------------------+-----------+------------+------+-------+--------+---------------+
+2 exercicio: quantos gafanhotos homens e quantas mulheres nasceram apos 1 de janeiro de 2005
 
-+----------------+---------------+
-| nome           | nacionalidade |
-+----------------+---------------+
-| Herisson Silva | EUA           |
-+----------------+---------------+
+codigo: select sexo, count(*) from gafanhotos where nascimento > '2005-01-01' group by sexo;
 
-+-------------+
-| max(altura) |
-+-------------+
-|        2.35 |
-+-------------+
+resultado: 
++------+----------+
+| sexo | count(*) |
++------+----------+
+| M    |        8 |
+| F    |        2 |
++------+----------+
 
-+-----------+
-| avg(peso) |
-+-----------+
-| 73.967705 |
-+-----------+
+3 exercicio: uma lista com os gafanhotos que nasceram fora do brasil, mostrando o pais de origem e o total de pessoas nascidas la. so no interessam os paises que tiveram mais de 3 gafanhotos com essa nacionalidade
 
-+-----------+
-| min(peso) |
-+-----------+
-|     35.90 |
-+-----------+
-+----------+
-| count(*) |
-+----------+
-|        5 |
-+----------+
+codigo: select nacionalidade, count(*) from gafanhotos where nacionalidade != 'Brasil' group by nacionalidade having count(*) > 3;
+
+resultado: 
++---------------+----------+
+| nacionalidade | count(*) |
++---------------+----------+
+| Portugal      |        8 |
+| EUA           |        8 |
+| Canadá        |        4 |
+| Angola        |        4 |
++---------------+----------+
+
+4 exercicio: uma lista agrupada pela altura das pessoas que pesam mais de 100kg e que estao acima da media de altura de todos os cadastrados;
+
+codigo: select * from gafanhotos where peso > '100.00' group by altura having altura > (select avg(altura) from gafanhotos );
+
+resultado:
++----+--------------------+----------------------+------------+------+--------+--------+---------------+
+| id | nome               | profissao            | nascimento | sexo | peso   | altura | nacionalidade |
++----+--------------------+----------------------+------------+------+--------+--------+---------------+
+| 17 | Paulo Narley       | Auxiliar Administrat | 1997-03-17 | M    | 120.10 |   2.22 | Brasil        |
+| 22 | Guilherme de Sousa | Dentista             | 2001-05-18 | M    | 132.70 |   1.97 | Moçambique    |
+| 26 | Paulo Batista      | Ator                 | 1999-03-15 | M    | 110.12 |   1.87 | Portugal      |
+| 29 | Tiago Ulisses      | Dentista             | 1993-04-22 | M    | 150.30 |   2.35 | Brasil        |
+| 36 | Robson Rodolpho    | Auxiliar Administrat | 2000-08-08 | M    | 110.10 |   1.76 | Brasil        |
+| 37 | Daniele Moledo     | Empreendedor         | 2006-08-11 | F    | 101.30 |   1.99 | Brasil        |
+| 59 | Philppe Oliveira   | Auxiliar Administrat | 2000-05-23 | M    | 105.10 |   2.19 | Brasil        |
++----+--------------------+----------------------+------------+------+--------+--------+---------------+
+
+
